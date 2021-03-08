@@ -6,7 +6,7 @@ import BookList from "../Components/BookList/BookList";
 const Search = () => {
   const APIkey = "AIzaSyAQzxLvsi1_xvTY61AevxyzjZYzHiSMhZg";
   const { error, isPending, data: books } = useFetch(
-    "https://www.googleapis.com/books/v1/volumes?q=search-terms&key=" + APIkey
+    "GET https://www.googleapis.com/books/v1/volumes?q=flowers&orderBy=newest&key=AIzaSyAQzxLvsi1_xvTY61AevxyzjZYzHiSMhZg"
   );
   return (
     <>
