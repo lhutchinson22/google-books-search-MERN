@@ -3,7 +3,7 @@ import "./style.css";
 
 function Jumbotron() {
   return (
-    <div className="parallax text-center" id="text-jumbo">
+    <div className="google-jumbo" id="text-jumbo">
       {/* <h1>Lauren Hutchinson</h1> */}
       <h5>Google Books Search</h5>
     </div>

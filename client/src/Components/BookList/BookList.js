@@ -10,7 +10,7 @@ const BookList = ({ books }) => {
         books.map((book, index) => (
           <div key={index} className="card" style={{ width: "15rem" }}>
             <div className="card-body">
-              <p>{book.name}</p>
+              <p>{book.items.volumeInfo.title}</p>
             </div>
           </div>
         ))}

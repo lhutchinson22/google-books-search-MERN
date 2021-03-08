@@ -1,13 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../../App.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          Navbar
-        </a>
+        <p href="#" className="navbar-brand" style={{ paddingTop: "20px" }}>
+          Google Books
+        </p>
         <button
           className="navbar-toggler"
           type="button"
