@@ -9,3 +9,16 @@ a {
   padding: 10px;
   color: black;
 }
+
+.banner-header {
+  color: rgb(97, 97, 97);
+  opacity: 0.4;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  padding-top: 50px;
+}
+
+input {
+  width: 90%;
+}
