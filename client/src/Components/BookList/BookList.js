@@ -1,14 +1,15 @@
 import React from "react";
 
-const BookList = ({ books }) => {
+const BookList = ({ result }) => {
   return (
     <div>
-      {books &&
-        books.map((book, index) => (
-          <div key={index}>
-            <p>{book.items.volumeInfo.title}</p>
-          </div>
-        ))}
+      {result.map((name, index) => (
+        <img
+          key={index}
+          src={name.volumeInfo.imageLinks.thumbnail}
+          alt={name.title}
+        />
+      ))}
     </div>
   );
 };

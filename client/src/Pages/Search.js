@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "./../App.css";
 // import useFetch from "./../utils/useFetch";
-// import BookList from "../Components/BookList/BookList";
 import axios from "axios";
+import BookList from "../Components/BookList/BookList";
 
 const Search = () => {
   const [name, setName] = useState("");
@@ -11,16 +11,6 @@ const Search = () => {
   const [apiKey, setApiKey] = useState(
     "AIzaSyAQzxLvsi1_xvTY61AevxyzjZYzHiSMhZg"
   );
-
-  // const { error, isPending, data: books } = useFetch(
-  //   "https://www.googleapis.com/books/v1/volumes?q=" +
-  //     name +
-  //     "&key=" +
-  //     apiKey +
-  //     "&maxResults=40"
-  // ).then((data) => {
-  //   console.log(data);
-  // });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +24,7 @@ const Search = () => {
           apiKey +
           "&maxResults=40"
       )
-      .then((res) => console.log(res));
+      .then((data) => setResult(data.data.items));
   };
 
   return (
@@ -53,10 +43,7 @@ const Search = () => {
         <button className="btn btn-outline-secondary">Search</button>
       </form>
       <div className="container">
-        {/* {error && <div>{error}</div>} */}
-        {/* {isPending && <div>Loading...</div>} */}
-        {/* {console.log("book results: " + books)} */}
-        {/* {books && <BookList books={books} />} */}
+        <BookList result={result} />
       </div>
     </div>
   );
