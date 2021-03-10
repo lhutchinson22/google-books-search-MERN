@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import SaveButton from "../SaveButton/SaveButton";
 import "./style.css";
 import API from "../../utils/API";
 
 const BookList = ({ result, index }) => {
-  const handleClick = () => {
+  const [formObject, setFormObject] = useState({});
+
+  const handleClick = (event) => {
     console.log("clicked save");
 
-    API.saveBook()
+    const { dataName, value } = event.target;
+    setFormObject({ ...formObject, [dataName]: value });
+    console.log(setFormObject);
+
+    API.saveBook({
+      title: formObject.title,
+      author: formObject.authors,
+      description: formObject.description,
+      image: formObject.image,
+      link: formObject.link,
+    })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
   };
@@ -27,13 +39,13 @@ const BookList = ({ result, index }) => {
               </a>
               <SaveButton onClick={handleClick} />
             </td>
-            <td style={{}}>
+            <td>
               <strong>Book title:</strong> {name.volumeInfo.title}
-              <p style={{}}>
+              <p>
                 <strong>Description:</strong> {name.volumeInfo.description}
               </p>
             </td>
-            <td style={{}}>
+            <td>
               <strong>Authors:</strong> {name.volumeInfo.authors}
             </td>
           </tr>
