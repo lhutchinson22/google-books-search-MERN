@@ -18,14 +18,22 @@ const Saved = () => {
       .catch((err) => console.log(err));
   }
 
-  const handleClick = (event) => {
+  const handleClick = (event, index) => {
     console.log("clicked delete");
+
+    const indexValue = event.currentTarget.getAttribute("data-value");
+    const formObject = books[indexValue];
+    console.log(formObject);
+
+    API.deleteBook(formObject._id)
+      .then((res) => loadBooks())
+      .catch((err) => console.log(err));
   };
 
   return (
     <table
       className="table table-light table-hover"
-      style={{ marginTop: "20px" }}
+      style={{ margin: "auto", width: "90%" }}
     >
       <tbody>
         {books.length ? (
