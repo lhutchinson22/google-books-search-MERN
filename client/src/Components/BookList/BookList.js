@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import SaveButton from "../SaveButton/SaveButton";
-import "./style.css";
 import API from "../../utils/API";
 
 const BookList = ({ result }) => {
-  // const [formObject, setFormObject] = useState({});
-
   const handleClick = (event) => {
     console.log("clicked save");
-
-    // const { dataName, value } = event.target;
-    // setFormObject({ ...formObject, [dataName]: value });
-    // console.log(setFormObject);
 
     const indexValue = event.currentTarget.getAttribute("data-value");
     const formObject = result[indexValue].volumeInfo;
@@ -30,7 +23,10 @@ const BookList = ({ result }) => {
   };
 
   return (
-    <table className="table table-hover" style={{ marginTop: "20px" }}>
+    <table
+      className="table table-light table-hover"
+      style={{ marginTop: "20px" }}
+    >
       <tbody>
         {result.map((name, index) => (
           <tr className="table-active" key={index}>

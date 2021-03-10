@@ -40,7 +40,9 @@ const Search = () => {
             e.target.value ? setName(e.target.value) : "Enter Book"
           }
         />
-        <button className="btn btn-outline-secondary">Search</button>
+        <button className="btn btn-outline-secondary" style={{}}>
+          Search
+        </button>
       </form>
       <div className="container">
         <BookList result={result} />
