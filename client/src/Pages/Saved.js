@@ -40,9 +40,9 @@ const Saved = () => {
           books.map((book, index) => (
             <tr className="table-active" key={index}>
               <td>
-                <Link to={book.link}>
+                <a target="blank" href={book.link}>
                   <img key={index} src={book.image} alt={book.title} />
-                </Link>
+                </a>
                 <DeleteButton onClick={handleClick} data-value={index} />
               </td>
               <td>
