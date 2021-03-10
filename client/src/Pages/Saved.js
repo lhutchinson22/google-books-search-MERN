@@ -17,7 +17,7 @@ const Saved = () => {
       .catch((err) => console.log(err));
   }
 
-  const handleClick = (event, index) => {
+  const handleClick = (event) => {
     console.log("clicked delete");
 
     const indexValue = event.currentTarget.getAttribute("data-value");
@@ -56,9 +56,9 @@ const Saved = () => {
             </tr>
           ))
         ) : (
-          <tr className="table-active">
-            <td>
-              <strong>no results</strong>
+          <tr className="no-books">
+            <td style={{ textAlign: "center", padding: "65px" }}>
+              <strong>You have 0 books saved.</strong>
             </td>
           </tr>
         )}
