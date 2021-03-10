@@ -40,7 +40,10 @@ const Search = () => {
             e.target.value ? setName(e.target.value) : "Enter Book"
           }
         />
-        <button className="btn btn-outline-secondary" style={{}}>
+        <button
+          className="btn btn-outline-secondary"
+          style={{ marginTop: "10px" }}
+        >
           Search
         </button>
       </form>

@@ -5,7 +5,12 @@ import "./style.css";
 // That way we don't have to define them all individually
 function SaveButton(props) {
   return (
-    <span className="btn btn-primary" {...props} role="button" tabIndex="0">
+    <span
+      className="btn btn-primary save-btn"
+      {...props}
+      role="button"
+      tabIndex="0"
+    >
       Save
     </span>
   );

@@ -1,0 +1,11 @@
+.card-footer {
+  background-color: white;
+  text-align: center;
+  position: relative;
+  bottom: 0px;
+  height: 150px;
+  border-top: none;
+}
+.img-thumbnail {
+  width: 300px;
+}
