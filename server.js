@@ -8,16 +8,16 @@ require("./models/connection");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// custom routes
+app.use("/api/books", require("./routes/book-routes"));
+
 if (process.env.NODE_ENV == "production") {
   app.use(express.static("client/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
-
-// custom routes
-app.use("/books", require("./routes/book-routes"));
-
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
 
 app.listen(PORT, () => {
   console.log("Listening on port: ", PORT);

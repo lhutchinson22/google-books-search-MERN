@@ -24,10 +24,14 @@ module.exports = {
   },
 
   postBook: async (req, res) => {
+    console.log(req.body);
     try {
       const newBookPost = new Book({
         title: req.body.title,
-        text: req.body.text,
+        authors: req.body.authors,
+        description: req.body.description,
+        image: req.body.image,
+        link: req.body.link,
       });
       res.json(await newBookPost.save());
     } catch (err) {

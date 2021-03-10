@@ -11,12 +11,14 @@ const Saved = () => {
     API.getBooks()
       .then((res) => res.data)
       .catch((err) => console.log(err));
+
+    // save in a setsate
   }
 
   return (
     <div>
       <h1>This is saved</h1>
-      {loadBooks && loadBooks}
+      {/* render */}
     </div>
   );
 };

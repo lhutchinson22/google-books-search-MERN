@@ -3,22 +3,27 @@ import SaveButton from "../SaveButton/SaveButton";
 import "./style.css";
 import API from "../../utils/API";
 
-const BookList = ({ result, index }) => {
-  const [formObject, setFormObject] = useState({});
+const BookList = ({ result }) => {
+  // const [formObject, setFormObject] = useState({});
 
   const handleClick = (event) => {
     console.log("clicked save");
 
-    const { dataName, value } = event.target;
-    setFormObject({ ...formObject, [dataName]: value });
-    console.log(setFormObject);
+    // const { dataName, value } = event.target;
+    // setFormObject({ ...formObject, [dataName]: value });
+    // console.log(setFormObject);
+
+    const indexValue = event.currentTarget.getAttribute("data-value");
+    const formObject = result[indexValue].volumeInfo;
+
+    console.log(formObject);
 
     API.saveBook({
       title: formObject.title,
-      author: formObject.authors,
+      authors: formObject.authors,
       description: formObject.description,
-      image: formObject.image,
-      link: formObject.link,
+      image: formObject.imageLinks.thumbnail,
+      link: formObject.previewLink,
     })
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
@@ -37,7 +42,7 @@ const BookList = ({ result, index }) => {
                   alt={name.title}
                 />
               </a>
-              <SaveButton onClick={handleClick} />
+              <SaveButton onClick={handleClick} data-value={index} />
             </td>
             <td>
               <strong>Book title:</strong> {name.volumeInfo.title}
