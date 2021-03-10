@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "./../App.css";
-// import useFetch from "./../utils/useFetch";
 import axios from "axios";
 import BookList from "../Components/BookList/BookList";
 
@@ -24,7 +23,8 @@ const Search = () => {
           apiKey +
           "&maxResults=40"
       )
-      .then((data) => setResult(data.data.items));
+      .then((data) => setResult(data.data.items))
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -48,6 +48,7 @@ const Search = () => {
         </button>
       </form>
       <div className="container">
+        {/* {!result && <h2>There are no books.</h2>} */}
         <BookList result={result} />
       </div>
     </div>
