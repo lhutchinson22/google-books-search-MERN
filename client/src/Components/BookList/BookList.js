@@ -34,7 +34,11 @@ const BookList = ({ result }) => {
               <a target="blank" href={name.volumeInfo.previewLink}>
                 <img
                   key={index}
-                  src={name.volumeInfo.imageLinks.thumbnail}
+                  src={
+                    name.volumeInfo.imageLinks === undefined
+                      ? ""
+                      : `${name.volumeInfo.imageLinks.thumbnail}`
+                  }
                   alt={name.title}
                 />
               </a>

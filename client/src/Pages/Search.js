@@ -10,10 +10,12 @@ const Search = () => {
   const [apiKey, setApiKey] = useState(
     "AIzaSyAQzxLvsi1_xvTY61AevxyzjZYzHiSMhZg"
   );
+  const [error, setError] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("book searched: ", name);
+    setError(false);
 
     axios
       .get(
@@ -23,8 +25,15 @@ const Search = () => {
           apiKey +
           "&maxResults=40"
       )
-      .then((data) => setResult(data.data.items))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        console.log(data);
+
+        data.data.items ? setResult(data.data.items) : setError(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
   };
 
   return (
@@ -48,7 +57,11 @@ const Search = () => {
         </button>
       </form>
       <div className="container">
-        {/* {!result && <h2>There are no books.</h2>} */}
+        {error && (
+          <div style={{ color: `red`, textAlign: `center` }}>
+            there are no books for that search.
+          </div>
+        )}
         <BookList result={result} />
       </div>
     </div>
