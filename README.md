@@ -9,7 +9,7 @@
 
 <img src="./client/src/Pages/googleBooksReact.gif">
 
-<p>deployed link: </p>
+<p>deployed link: https://google-book-search-mern-react.herokuapp.com/</p>
 
 <h2>Questions</h2>
 <p>Github username: lhutchinson22</p>
